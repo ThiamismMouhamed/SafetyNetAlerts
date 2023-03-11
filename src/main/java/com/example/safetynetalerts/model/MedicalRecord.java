@@ -17,7 +17,7 @@ import java.util.List;
  */
 @Data
 @NoArgsConstructor
-public class Medicalrecord {
+public class MedicalRecord {
 
     /**
      * Gets id.
@@ -46,7 +46,7 @@ public class Medicalrecord {
      * @param medications the medications
      * @param allergies   the allergies
      */
-    public Medicalrecord(String firstName, String lastName, String birthdate, List<String> medications, List<String> allergies) {
+    public MedicalRecord(String firstName, String lastName, String birthdate, List<String> medications, List<String> allergies) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthdate = parseStringToLocalDate(birthdate);

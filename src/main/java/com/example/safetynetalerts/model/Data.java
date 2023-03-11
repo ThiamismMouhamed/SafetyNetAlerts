@@ -15,5 +15,5 @@ import java.util.List;
 public class Data {
     private List<Personne> persons = new ArrayList<>();
     private List<Firestation> firestations = new ArrayList<>();
-    private List<Medicalrecord> medicalrecords = new ArrayList<>();
+    private List<MedicalRecord> medicalRecords = new ArrayList<>();
 }
