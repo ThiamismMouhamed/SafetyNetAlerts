@@ -28,7 +28,7 @@ public class FirestationService implements FirestationIn{
 
 
     @Override
-    public void addMedicalRecord(Firestation firestation) {
+    public void addFirestation(Firestation firestation) {
         log.debug("Add a firestation: " + firestation);
 
         Optional<Firestation> optionalFirestation =

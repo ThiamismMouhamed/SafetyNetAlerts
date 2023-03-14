@@ -10,7 +10,7 @@ import java.util.Set;
 
 public interface FirestationIn {
 
-    void addMedicalRecord(Firestation firestation);
+    void addFirestation(Firestation firestation);
     void updateFirestation(Firestation firestation);
     void deleteFirestation(Firestation firestation);
     List<PersonsByStationDto> getPersonsByStation(int stationNumber);
