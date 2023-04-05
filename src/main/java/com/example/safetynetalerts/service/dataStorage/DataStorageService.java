@@ -4,6 +4,7 @@ package com.example.safetynetalerts.service.dataStorage;
 import com.example.safetynetalerts.model.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
@@ -17,24 +18,16 @@ import java.util.stream.Collectors;
 @Log4j2
 public class DataStorageService implements DataStorageIn {
 
-    private final Data data;
+    @Autowired
+    private DataReaderService dataReaderService;
 
-    /**
-     * Instantiates a new Data storage.
-     *
-     * @throws IOException the io exception
-     */
-    public DataStorageService() throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        File file = new ClassPathResource("data.json").getFile();
-        log.info("File address = " + file.getAbsolutePath());
-        this.data = objectMapper.readValue(file, Data.class);
-    }
+
+
 
     @Override
     public List<Personne> getPersonnes() {
         log.info("Get all persons");
-        return data.getPersons();
+        return dataReaderService.getData().getPersons();
     }
 
     @Override
@@ -58,7 +51,7 @@ public class DataStorageService implements DataStorageIn {
     @Override
     public List<Firestation> getFirestations() {
         log.info("Get all firestations");
-        return data.getFirestations();
+        return dataReaderService.getData().getFirestations();
     }
 
     @Override
@@ -84,7 +77,7 @@ public class DataStorageService implements DataStorageIn {
     @Override
     public List<MedicalRecord> getMedicalrecords() {
         log.info("Get all medicalrecords");
-        return data.getMedicalRecords();
+        return dataReaderService.getData().getMedicalRecords();
     }
 
     @Override
@@ -96,8 +89,5 @@ public class DataStorageService implements DataStorageIn {
                 .findFirst();
     }
 
-    @Override
-    public Data getData() {
-        return null;
-    }
+
 }

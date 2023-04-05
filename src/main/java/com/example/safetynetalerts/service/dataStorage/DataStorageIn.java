@@ -17,6 +17,6 @@ public interface DataStorageIn {
 
     List<MedicalRecord> getMedicalrecords();
     Optional<MedicalRecord> getMedicalRecordById(Id id);
-    Data getData();
+
 
 }
